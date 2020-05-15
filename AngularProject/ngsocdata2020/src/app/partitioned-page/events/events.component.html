@@ -1,0 +1,15 @@
+
+<div class="timeline">
+    <h5>Timeline</h5>
+    <div *ngFor="let event of eventList" class="event" [@fadeInUpOnEnter] [@fadeOutUpOnLeave]>
+        <div class="event-date">
+            {{event.date}}
+        </div>
+        <div class="event-title">
+            <b>{{event.label.content}}</b>
+        </div>
+        <div class="event-body">
+            {{event.body}}
+        </div>
+    </div>
+</div>

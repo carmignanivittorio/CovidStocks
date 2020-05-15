@@ -1,0 +1,28 @@
+<div class="controls">
+    <button type="button" class="btn btn-danger control" (click)="clickPlay()">
+        <span *ngIf="!playing" class="option">
+            <span class="icon">
+                <fa-icon [icon]="faPlay"></fa-icon>
+            </span>
+            Play
+        </span>
+        <span *ngIf="playing" class="option">
+            <span class="icon">
+                <fa-icon [icon]="faPause"></fa-icon>
+            </span>
+            Pause
+        </span>
+    </button>
+    <button type="button" class="btn btn-danger control" (click)="clickOneBefore()">
+        <span class="icon">
+            <fa-icon [icon]="faStepBackward"></fa-icon>
+        </span>
+        One before
+    </button>
+    <button type="button" class="btn btn-danger control" (click)="clickStart()">
+        <span class="icon">
+            <fa-icon [icon]="faFastBackward"></fa-icon>
+        </span>
+        Start
+    </button>
+</div>

@@ -1,0 +1,17 @@
+.timeline{
+    min-height: 200px;
+    font-family: FranklinGothic;
+}
+
+.event {
+    border: solid;
+    border-width: 1px;
+    border-color: rgba(0,0,0,0.15);
+    padding: 3px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.event-date {
+    font-size: 10.5px;
+}

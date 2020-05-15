@@ -1,0 +1,87 @@
+/* Page specific */
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a {
+    color: black;
+    text-decoration: underline;
+}
+
+.text-part {
+    width: 40%;
+}
+
+.title {
+    text-align: center;
+}
+
+.author-block {
+    display: inline-block;
+}
+
+.authors {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    font-family: FranklinGothic;
+}
+
+.ticker {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.racebar-component{
+    width: 90%;
+}
+
+.plotly-iframe-correlation {
+    width: 65%;
+    height: 816px;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+.note-correlation{
+    width: 50%;
+}
+
+#partitioned-note {
+    margin-bottom: 20px;
+}
+
+.text-centered {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.further-analysis {
+    border: solid;
+    border-width: 1px;
+    border-color: rgba(0,0,0,0.15);
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.gif-line {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.viz-gif {
+    width: 250px;
+    height: auto;
+}
+
+.tooltip-note {
+    margin-top: 5px;
+    font-size: 10.5px;
+}

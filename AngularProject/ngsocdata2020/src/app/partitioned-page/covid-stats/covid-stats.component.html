@@ -1,0 +1,31 @@
+<div class="covid-stats">
+    <h3>Covid-19</h3>
+    <div class="total-div">
+        <div class="total-cases">
+            <b>Confirmed cases:</b> {{totalCases}}
+        </div>
+        <div class="total-deaths">
+            <b>Confirmed deaths:</b> {{totalDeaths}}
+        </div>
+    </div>
+    <br>
+    <div class="country-list">
+        <h6>Country Breakdown</h6>
+        <div *ngFor="let countryName of posterDataObj.story[posterDataObj.storySelected].covidCountries" class="country-breakdown">
+            <div class="country-image-div">
+
+            </div>
+            <div class="country-name">
+                <span class="flag-icon flag-icon-{{posterDataObj.countryData[countryName].idLower}}"></span> <b>{{posterDataObj.countryData[countryName].name}}</b>
+            </div>
+            <div class="country-stat-row" *ngIf="posterDataObj.covidData[countryName]">
+                <div class="country-cases">
+                    Cases: {{posterDataObj.covidData[countryName][posterDataObj.dateSelected].confirmed_cum}}
+                </div>
+                <div class="country-deaths">
+                    Deaths: {{posterDataObj.covidData[countryName][posterDataObj.dateSelected].deaths_cum}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="page">
+    <div class="hero">
+        <div class="title">
+            <div class="title-large">
+                More Visualizations
+            </div>
+            <div class="title-small">
+                How population and GDP have affected the virus
+            </div>
+        </div>
+    </div>
+    <br/><br/>
+    <div class="text-part back">
+        <a href="">Back to main page</a>
+    </div>
+    <hr class="linebreak">
+    <div class="title-small">
+        Daily confirmed cases distribution
+    </div>
+    <div class="text-part">
+        The chart below shows the daily number of cases per country. Additionally, countries are stacked to provide an overview of the 
+        global situation. Countries can be selected or unselected from the visualization. Note, by double-clicking on a specific country,
+        you can focus on it.
+    </div>
+    <iframe src="assets/plotly/daily_confirmed_cases_in_the_world.html" class="plotly-iframe-daily"></iframe>
+    <div class="text-part">
+        The Chinese trend looks remarkably different compared to all other countries. Firstly, it is isolated. Indeed, as the virus developed
+        initially in China, all other countries have been affected around a month later. Secondly, the chart clearly shows that the rest of
+        the world has been struggling with the virus for a noticeable longer time than China.
+        <br/><br/>
+        On February 12th, China registered 2028 new cases. The next day, there were 15141 new cases, a whopping rise of 646%.
+        Unexpectedly, they drastically decrease over 72.5% in the very next day (4156 cases on the 14th of February).
+        <br/><br/>
+        Globally, the worst day recorded over 100k confirmed case on April 26th.
+    </div>
+    <hr class="linebreak">
+    <div class="title-small">
+        The richer, the sicker?
+    </div>
+    <div class="text-part">
+        The visualization below compares the number of cases with the population and the <span class="ticker" [ngbTooltip]="GDP">GDP</span>
+        of the country. The number of cases is normalized based on the population. Continents can be selected and unselected from the
+        chart. The goal is to investigate possible correlations between size, wealth, and confirmed cases. 
+    </div>
+    <iframe src="assets/plotly/3dgpd_pop_conf_norm.html" class="plotly-iframe-gdp"></iframe>
+    <div class="text-part">
+        Firstly, the population size did not affect the spread of the virus. Focusing only on the population and the number of cases,
+        points are homogeneously spread around the corresponding plane. This proves there is no significant correlation between them.
+        <br/><br/>
+        On the contrary, looking at the colors representing the GPD, a clear correlation can be seen between GDP and confirmed cases.
+        Richer countries translate into a higher number of cases. This can be explained by the fact that richer countries have better
+        health systems. Thereby, they can afford more testing and hospitalization.
+    </div>
+    <div class="text-part back">
+        <a href="#stories">Back to main page</a>
+    </div>
+
+    <ng-template #GDP>
+        <div class="tooltip-title">
+            Gross Domestic Product — GDP
+        </div>
+        <div class="tooltip-description">
+            Gross Domestic Product (GDP) is the total monetary or market value of all the finished goods and services produced within a country's borders in a specific time period.
+        </div>
+    </ng-template>
+</div>

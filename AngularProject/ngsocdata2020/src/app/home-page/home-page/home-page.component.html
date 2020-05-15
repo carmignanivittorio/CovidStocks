@@ -1,0 +1,436 @@
+<div class="page">
+    <div class="hero">
+        <div class="title">
+            <div class="title-large">
+                David and Goliath:
+            </div>
+            <div class="title-small">
+                How a tiny germ brought the <br> world economy to its knees
+            </div>
+        </div>
+
+        <hr class="linebreak">
+        <div class="authors">
+            A data visualization analysis by:&nbsp;
+            <div class="author-block">
+                <a target="_blank" href="https://www.linkedin.com/in/mirkobiasini/"> Mirko Biasini</a>, <a target="_blank" href="https://www.linkedin.com/in/vittorio-carmignani/">Vittorio Carmignani</a> and <a target="_blank" href="https://twitter.com/panosfilianos">Panos Filianos</a>
+            </div>
+        </div>
+    </div>
+    <div class="text-part">
+        It is December 2019. The <span class="ticker" [ngbTooltip]="MSCITooltip">MSCI World</span>&nbsp;<span class="ticker" [ngbTooltip]="IndexTooltip">Index</span> is on track to hit an all-time high for the last 20 years. Economic growth
+        seems to be unstoppable, ignoring the hum of conservative market voices predicting an imminent correction and giving
+        the administrations of the developed economies the content for a chapter of financial glory. 
+        <br><br>
+        The most concerned officials would be mentioning enemies of major scale. Income and wealth inequality, social and civil
+        unrest and the ripples of impeding environment doom were seen as the culprits-to-be to end the dream that seemed to have
+        lasted more than it should. The form factor of that agent would be much smaller. In fact, less than 120 nm in diameter.
+        <br><br>
+        Its name: <i>SARS-CoV-2</i>, a novel coronavirus, first identified in the Wuhan region of China in December 2019.
+        <i>SARS-CoV-2</i>'s characteristics would render it a very strong opponent to the world's financial system, expose
+        structural inefficiencies in global supply chains and press for leadership in an unpredented scale.
+        <br><br>
+        On the 19th of February 2020, the major worlwide <span class="ticker" [ngbTooltip]="IndexTooltip">indexes</span> (<span class="ticker" [ngbTooltip]="DJITooltip">$DJI</span>, 
+        <span class="ticker" [ngbTooltip]="NasdaqTooltip">^IXIC</span> and <span class="ticker" [ngbTooltip]="SPTooltip">$SPX</span>)
+        will have a record high week. Five days later at the 24th of February, the sharpest and longest decline experienced in the US financial markets
+        , in more than 40 years, would start.
+        <br><br>
+        The current website is a visual data exploration of the stories that contributed to the strongest financial shock since
+        the Great Recession of 2008 and the riptidal waves that will shift the worldwide economy for years to come.
+    </div>
+    <hr class="linebreak">
+    <div class="title-small" id="motivation">Table of Contents</div>
+    <div class="text-part">
+        <ul>
+            <li>
+                <a href="#motivation">Motivation</a>
+            </li>
+            <li>
+                <a href="#racebar-viz">Winning makes you lose</a>
+            </li>
+            <li>
+                <a href="#stories">Ripple to Wave, Tweet Storm and Locking Down</a>
+                
+            </li>
+            <li>
+                <a href="#conclusions">Conclusion</a>
+            </li>
+            <li>
+                <a href="#datasets">Datasets</a>
+            </li>
+        </ul>
+        <div class="note">
+            If you'd like to have a more conrete overview of the datasets used, the data analysis methods and the results we produced
+            please read our Jupyter Notebook <a href="https://nbviewer.jupyter.org/github/carmignanivittorio/CovidStocks/blob/master/JupyterNotebooks/FinalProjectReport.ipynb" target="blank">here</a>.
+        </div>
+    </div>
+    <hr class="linebreak">
+    <div class="title-small" id="motivation">Motivation</div>
+    <div class="text-part">
+        Our motivation stems from the current affairs — financial, political or otherwise — regarding the ongoing pandemic.
+        As 2020 is election year in the United States, the leading economy, the implications of COVID-19 have been massive.
+        <br>
+        On this rocky landscape, there have been many voices that assigned blame to China for the origin of the virus: from 
+        <a target="_blank" href="https://nypost.com/2020/02/22/dont-buy-chinas-story-the-coronavirus-may-have-leaked-from-a-lab/">The New York Post</a> (the newspaper with the highest circulation in the US)
+        and <a target="_blank" href="https://www.washingtonpost.com/nation/2020/02/25/limbaugh-coronavirus-trump/">Rush Limbaugh</a>
+        (of the Rush Limbaugh Show, with more than 15M weekly listeners) to <a target="_blank" href="https://www.theguardian.com/us-news/2020/apr/11/republican-tom-cotton-coronavirus-china">Tom Cotton</a> (a Republican Senator), 
+        <a target="_blank" href="https://www.theguardian.com/world/2020/may/03/mike-pompeo-donald-trump-coronavirus-chinese-laboratory">Mike Pompeo</a> (US Secretary of State) and 
+        <a target="_blank" href="https://www.bbc.com/news/world-us-canada-52496098">the President Donald Trump</a> himself.
+        <br><br>
+        These accusation have been growing, as the <a target="_blank" href="https://www.sciencemag.org/news/2020/05/pressure-grows-china-independent-investigation-pandemic-s-origins">pressure from the international community mounts towards China</a>
+        for an indepedent investigation on the origins of the disease. This is fertile ground for conspiracy theories:
+        starting from ones suggesting <i>SARS-CoV-2</i> to be a biowarfare item and veering into those that look at governments
+        as power hungry, ready to suppress their freedom on a pretence, we see them move from the fringes of global discourse and into to mainstream.
+        <br><br>
+        Granted the dismay that <i>SARS-CoV-2</i> has caused, we will try to investigate its financial concequences,  produce
+        evidence for further research and collect data that can be of assistance during the analysis of questions as
+        the following:
+        <ul>
+            <li>
+                How did the worldwide economy respond to the events from January 2020 and onward?
+            </li>
+            <li>
+                How did the Western markets compare to the Chinese markets from January 2020 and onward?
+            </li>
+            <li>
+                How did the Chinese markets perform in 2020 compared to previous years? 
+            </li>
+            <li>
+                What was the economic effect to Donald Trump's political base and what was the effect on his approval rating?
+            </li>
+            <li>
+                What is the economic effect of locking a country down? 
+            </li>
+        </ul> 
+        Our jobs as data scientists, is to select questions that have unclear answers and unearth data that will support
+        futher analysis. In that vain (and under these conditions) there is no question out of reach.
+    </div>
+    <!-- Racebar section -->
+    <hr class="linebreak">
+    <div class="title-small" id="racebar-viz">Winning makes you lose</div>
+    <div class="text-part">
+        To have a first overview of how the virus spread around the most damaged countries, we created the racebar visualization below.
+        The chart combines COVID-19 and stock market information to identify preliminary traces of correlation.
+        <br/><br/>
+        The right side is the actual racebar, where bars show the number of cases per country. Simultaneously, the left side shows the
+        stock value. Stock values are normalized between 0-1 taking into account the last three years. Given a country, its highest stock
+        value in the last three years is normalized to 1, whereas, the lowest is equal to 0. The remaining values are normalized accordingly.
+        To better convey the proportion of the drop, the chart shows the maximum stock value reached during the coronavirus period.
+        <br/><br/>
+        We analyzed 8 countries: China, France, Germany, Italy, Japan, Spain, United Kingdom, and USA. These were chosen because they
+        represent the most affected countries, as well as the strongest economies in the world. 
+        The first time China alerted the <span class="ticker" [ngbTooltip]="WHOTooltip">WHO</span> to several cases of unusual pneumonia in Wuhuan dates back to December 31st, 2019.
+        Thus, we considered the period 31/12/2019 - 13/05/2020.
+        <div class="text-centered">
+            <h5><b>Normalized Country Stock Market Values vs. COVID-19 Cases</b></h5>
+        </div>
+    </div>
+    <app-racebar-page class="racebar-component"></app-racebar-page>
+    <div class="text-part">
+        The maximum stock values show that all countries started very close to their maximum but China (maximum equal to 0.66).
+        This confirms the recent positive trend of the market previously discussed. In the beginning, while the number of cases is
+        exponentially increasing in China, all countries fluctuate around their maximum value. This shows that all countries were 
+        permanently at their highest, as well as that there was no sign of recession before the COVID-19 case exploded. 
+        <br/><br/>
+        With the progressing of the days, a clear pattern arises among all countries. As the number of cases reaches the first hundreds,
+        the stock value remarkably declines around 0.6. Successively, while cases continue to increase exponentially, the stock market
+        dramatically drops reaching its historical minimum in the last 12 years.
+        <br/><br/>
+        This visualization effectively shows the correlation between cases and the stock market. Indeed, as the cases bar gets bigger and bigger,
+        the stock one shrinks down to zero. One could imagine this as the cases bar stealing from the market.
+        <br/><br/>
+        Fortunately, the last month shows faint signs of recovery. In particular, Germany traces back to roughly half of its highest value.
+        Likewise, the USA bounces back to 0.60. We assume that USA and Germany had the best recovery due to their stronger economy, compare to the 
+        other European countries. Here, further analysis is required to assess whether it is a V-shape recovery or just a momentary rally.
+        <br/><br/>
+        Finally, an interesting behavior emerges from the Chinese stock market. While all other countries seem to be strictly correlated to
+        the number of cases, the Chinese market looks differently. Indeed, it initially decreases as cases are rising. However, when the
+        number of cases arrives at its maximum, the stock value is approximately 0.3. Subsequently, it drastically drops to zero only 
+        when the virus spreads all around the world and the global economy falls. 
+        <br/><br/>
+        <div class="further-analysis">
+            To further analyze how population and <span class="ticker" [ngbTooltip]="GDP">GDP</span> have affected the spread of <i>SARS-CoV-2</i>, 
+             <a href="/charts">click here for interactive visualizations</a>.
+            <a href="/charts">
+                <div class="gif-line">
+                
+                    <img src="assets/visualization_gifs/daily.gif" alt="Visualization GIF" class="viz-gif">
+                    <img src="assets/visualization_gifs/gdp.gif" alt="Visualization GIF" class="viz-gif">
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <hr class="linebreak">
+    <div class="title-small" id="stories">Ripple to Wave, Tweet Storm and Locking Down</div>
+    <div class="text-part">
+        The implications of <i>SARS-CoV-2</i> have been devastating to the economy. The financial system was unprepared for
+        the need to block its main arteries of growth and the workforce had to switch to solutions of working from home or
+        face an immediate threat of unemployment.
+        <br><br>
+        Although the data available for analysis are vast and with very interesting network effects, we will be approaching
+        the subject matter through <i>three stories</i>:
+        <ul>
+            <li>
+                <b>Ripple to Wave:</b> We will try to assess the effect of COVID-19 from the ground-zero of China to the developed
+                markets of the West using the primary tools of the <span class="ticker" [ngbTooltip]="ForexTooltip">forex</span> currency pairs <span class="ticker" [ngbTooltip]="CNYUSDTooltip">CNY/USD</span>, <span class="ticker" [ngbTooltip]="CNYEURTooltip">CNY/EUR</span> and a major <span class="ticker" [ngbTooltip]="ETFTooltip">ETF</span> of the
+                Chinese market, iShares China Large-Cap ETF.
+            </li>
+            <li>
+                <b>Tweet Storm:</b> We will investigate the financial effects on Donald Trump's political base through financial
+                instruments like the <span class="ticker" [ngbTooltip]="DJITooltip">$DJI</span> and 
+                <span class="ticker" [ngbTooltip]="SPTooltip">$SPX</span> in conjuction with Donald Trump's approval ratings
+            </li>
+            <li>
+                <b>Locking Down:</b> We will attempt to assess economical impact of country lockdown through the comparison
+                of the developed Scandinavian markets.
+            </li>
+        </ul>
+        These stories are visible on the following visualization, which includes a map of the cases for each story, detailed
+        COVID-19 statistics, realtime charting of the relevant financial instruments and a timeline of major events.
+        The aim is to provide the readers with an accessible way to explore the main drivers of development on each story
+        and extract their conclusions.
+        <br><br>
+        All values of the financial instruments have been <i>normalized between 0 and 1</i> over the last 3 year period. Hitting
+        0 means the instrument found its minimal value over the last 3 years. Hitting 1 means it found its maximum value.
+    </div>
+    <app-partitioned-page id="partitioned-viz"></app-partitioned-page>
+    <div class="note" id="partitioned-note">
+        Click the Play button to see a story.
+    </div>
+    <div class="text-part">
+        The visualization above gives interesting insight on multiple fronts.
+        <br><br>
+        Initially, we see <span class="ticker" [ngbTooltip]="CNYEURTooltip">CNY/EUR</span> to significantly increase over the analysis period and close 92% higher. Simply, that means that 
+        investors have
+        stronger belief in the strength of the Chinese economy versus the European ecosystem. This displays that the Chinese markets
+        are more attractive to capital and allows CNY holders to enact dominance in a European market that has not, yet, adjusted
+        the prices of its assets. That is not reflected on the <span class="ticker" [ngbTooltip]="CNYUSDTooltip">CNY/USD</span> pair which remains stable throughout the period.
+        <br><br>
+        Additionally, the Chinese market, seen through the iShares China Large-Cap <span class="ticker" [ngbTooltip]="ETFTooltip">ETF</span>, shows a quick recovery. Shares of 50 of
+        some of the largest in market cap Chinese companies regained ~50% of their former value, hinting what recovery could look like
+        in the West after the containment of <i>SARS-CoV-2</i>.
+        <br><br>
+        The US economy would reach its highest ever peak and lowest, 3-year low inside the period. Regardless, the two robust
+        index indicators (<span class="ticker" [ngbTooltip]="DJITooltip">$DJI</span> and <span class="ticker" [ngbTooltip]="SPTooltip">$SPX</span>)
+        regained ~60% of their value. The recovery in that case seems to grow faster than China's.
+        <br><br>
+        Through that period, Donald Trump's approval rating exploded to the highest level, since the start of his presidency at
+        the 25th of January 2017. His narrative will include accusations towards China and suggest untested and unproven treatments
+        as immediate panacea for ailments related to <i>SARS-CoV-2</i>.
+        <br><br>
+        During the same time, the right-wing populist UK government of Boris Johnson was required to deal with a steep decline of
+        FTSE 100. The British economy by the <span class="ticker" [ngbTooltip]="IndexTooltip">index</span>, tested by years of uncertainty due to Brexit and political instability, would move from a
+        high point of 0.9 of its 3-year normalized value, to its lowest point. The recovery would be slower: At the end of 
+        April 2020 it would have regained less than 30% of its former value.
+    </div>
+    <iframe src="assets/plotly/correlationMatrix.html" class="plotly-iframe-correlation"></iframe>
+    <div class="note note-correlation">
+        Correlation matrix comprising the Trump's approval rating and the <span class="ticker" [ngbTooltip]="IndexTooltip">stock indexes</span> with an absolute correlation higher than 0.7.
+        The visualization above shows a high correlation between European <span class="ticker" [ngbTooltip]="IndexTooltip">indexes</span>. Indeed, France, Italy, Spain, and UK have all experienced
+        a similar trend within the same timeframe. As such, their markets have developed analogously. Conversely, Trump's approve estimates
+        have a negative correlation, albeit noticeable weaker. This shows that Trump's approval rating got stronger as the European market got weaker.
+    </div>
+    <br>
+    <div class="text-part">
+        Finally, lock downs seem to be tolerable for developed economies. We decided to compare impact on 
+        <span class="ticker" [ngbTooltip]="OMXTooltip">^OMX</span>, 
+        <span class="ticker" [ngbTooltip]="OMXH25Tooltip">^OMXH25</span>, 
+        <span class="ticker" [ngbTooltip]="OSEAXTooltip">^OSEAX</span> and 
+        <span class="ticker" [ngbTooltip]="OMXCGITooltip">^OMXCGI</span>
+        as the markets have similar economic policies, high geographic proximity and they followed different lock down approaches. 
+        <br><br>
+        Denmark, Norway and Finland enforced stricter lockdown rules, contrary to Sweden. The countries saw comparable rates of recovery, with Denmark
+        recovering a whopping 68%, causing disbelief that Sweden's approach was worth the toll. Overall the mortality rate would be
+        more than 12% for Sweden, compared to 4% for Finland, 5% for Denmark and 2.5% for Norway. Sweden, additionally had 2.8x more cases
+        than the mean of the rest Scandinavian countries. With an average recovery of its market, it seems the investors don't
+        feel confident that Sweden's policy is the best.
+    </div>
+    <hr class="linebreak">
+    <div class="title-small" id="conclusions">Conclusion</div>
+    <div class="text-part">
+        The goal of the present research was to present a clearer picture of the factors in play during the financial collapse
+        of 2020. While we didn't have the chance to cover the full picture (with the oil price war between Russia and Saudi Arabia
+        being a major unaddressed part) we consider to have presented a number of interesting insights summarized below:
+        <ul>
+            <li>
+                The <span class="ticker" [ngbTooltip]="CNYEURTooltip">CNY/EUR</span>&nbsp;<span class="ticker" [ngbTooltip]="ForexTooltip">forex</span> pair gained 92% of its starting value, strengthening the position of CNY holders vs. EUR ones. 
+            </li>
+            <li>
+                Stronger economies show higher recovery rate. The Chinese and German stock market have regained ~50% of their maximum
+                value over the period. the US <span class="ticker" [ngbTooltip]="IndexTooltip">indexes</span> have regained ~60% of their highest value over the period.
+            </li>
+            <li>
+                Donald Trump has gained the highest approval rating throughout his presidency. His narrative and presentation
+                seems benefitial to secure a winning standing on his political base.
+            </li>
+            <li>
+                Lock downs are not destructive for the economy if managed properly. Sweden, a country without strict 
+                social distancing rules, has had a significantly heavier toll without maintaining a strong market standing, when
+                compared to the similar markets of Denmark, Norway and Finland. 
+            </li>
+        </ul>
+    </div>
+    <hr class="linebreak">
+    <div class="title-small" id="datasets">Datasets</div>
+    <div class="text-part">
+        The datasets used come from different sources:
+        <ul>
+            <li>
+                World Bank provided the <a target="_blank" href="https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?view=map">GDP dataset</a>. 
+            </li>
+            <li>
+                <a target="_blank" href="https://www.ecdc.europa.eu/en">European Centre for Disease Prevention and Control</a> provided the <a target="_blank" href="https://opendata.ecdc.europa.eu/covid19/casedistribution/">COVID-19 dataset</a>.
+            </li>
+            <li>
+                Yahoo! Finance was used to <a target="_blank" href="https://nbviewer.jupyter.org/github/carmignanivittorio/CovidStocks/blob/master/JupyterNotebooks/DataProcessingStocks.ipynb#choose">fetch 20 financial tickers</a>, including Stock Indexes, ETFs, Futures and Cryptocurrencies
+            </li>
+            <li>
+                Tooltip descriptions of organizations, securities and assets are provided by Wikipedia, unless stated otherwise.
+            </li>
+        </ul>
+    </div>
+
+    
+    <ng-template #ForexTooltip>
+        <div class="tooltip-title">
+            Foreign Exchange Market
+        </div>
+        <div class="tooltip-description">
+            The foreign exchange market is a global decentralized or over-the-counter (OTC) market for the trading of currencies.
+        </div>
+    </ng-template>
+
+    <ng-template #CNYEURTooltip>
+        <div class="tooltip-title">
+            CNY/EUR
+        </div>
+        <div class="tooltip-description">
+            A forex currency pair, denominating the value of 1 Renminbi (CNY) against the Euro (EUR).
+            <div class="tooltip-note">Description by the authors</div>
+        </div>
+    </ng-template>
+
+    <ng-template #CNYUSDTooltip>
+        <div class="tooltip-title">
+            CNY/USD
+        </div>
+        <div class="tooltip-description">
+            A forex currency pair, denominating the value of 1 Renminbi (CNY) against the United States Dollar (USD).
+            <div class="tooltip-note">Description by the authors</div>
+        </div>
+    </ng-template>
+
+    <ng-template #ETFTooltip>
+        <div class="tooltip-title">
+            Exchange-traded funds (ETFs)
+        </div>
+        <div class="tooltip-description">
+            An ETF is a investment fund traded in stock exchanges. ETFs allow exposure to a collection of assets in a specific market and can be good aggregators of the movement in a segment of that market.
+        </div>
+    </ng-template>
+
+    <ng-template #IndexTooltip>
+        <div class="tooltip-title">
+            Stock Market Index
+        </div>
+        <div class="tooltip-description">
+            A Stock Market Index is an aggregation of the value of the traded assets in a market. Indexes give the overall action and sentiment in a market.
+        </div>
+    </ng-template>  
+
+    <ng-template #MSCITooltip>
+        <div class="tooltip-title">
+            MSCI World
+        </div>
+        <div class="tooltip-description">
+            The MSCI World is a market cap weighted stock market index of 1,644 stocks from companies throughout the world. It is used as a common benchmark for 'world' or 'global' stock funds intended to represent a broad cross-section of global markets.
+        </div>
+    </ng-template>
+
+    <ng-template #WHOTooltip>
+        <div class="tooltip-title">
+            World Health Organization
+        </div>
+        <div class="tooltip-description">
+            The World Health Organization (WHO) is a specialized agency of the United Nations responsible for international public health.
+        </div>
+    </ng-template>
+
+    <ng-template #DJITooltip>
+        <div class="tooltip-title">
+            Dow Jones Industrial Average
+        </div>
+        <div class="tooltip-description">
+            The Dow Jones Industrial Average (DJIA), is a stock market index that measures the stock performance of 30 large companies listed on stock exchanges in the United States
+        </div>
+    </ng-template>
+
+    <ng-template #OMXTooltip>
+        <div class="tooltip-title">
+            OMX Stockholm
+        </div>
+        <div class="tooltip-description">
+            The OMX Stockholm PI, formerly known as SAX All Share, is a stock market index of all shares that trade on the Stockholm Stock Exchange.
+        </div>
+    </ng-template>
+
+    <ng-template #OMXH25Tooltip>
+        <div class="tooltip-title">
+            Helsinki Stock Exchange Index
+        </div>
+        <div class="tooltip-description">
+            OMX Helsinki 25 is the Helsinki Stock Exchange leading share index. The index consists of the 25 most actively traded stocks on the Helsinki Stock Exchange.
+            <div class="tooltip-note">Description by Nasdaq</div>
+        </div>
+    </ng-template>
+
+    <ng-template #OSEAXTooltip>
+        <div class="tooltip-title">
+            Helsinki Stock Exchange Index
+        </div>
+        <div class="tooltip-description">
+            The Oslo Børs All Share Index consists of all shares listed on Oslo Børs (Oslo Stock Exchange). The index is adjusted for corporate actions daily and the current outstanding number of shares is applied in the index. The OSEAX index is adjusted for dividend payments.
+            <div class="tooltip-note">Description by Oslo Børs</div>
+        </div>
+    </ng-template>
+
+    <ng-template #OMXCGITooltip>
+        <div class="tooltip-title">
+            Nasdaq Copenhagen Index
+        </div>
+        <div class="tooltip-description">
+            The Nasdaq Copenhagen, formerly known as the Copenhagen Stock Exchange (Danish: Københavns Fondsbørs), is an international marketplace for Danish securities, including shares, bonds, treasury bills and notes, and financial futures and options.
+        </div>
+    </ng-template>
+
+    
+
+    <ng-template #NasdaqTooltip>
+        <div class="tooltip-title">
+            NASDAQ Composite
+        </div>
+        <div class="tooltip-description">
+            The NASDAQ Composite (ticker symbol ^IXIC) is a stock market index of the common stocks and similar securities  listed on the Nasdaq stock market
+        </div>
+    </ng-template>
+
+    <ng-template #SPTooltip>
+        <div class="tooltip-title">
+            S&P 500 Index
+        </div>
+        <div class="tooltip-description">
+            The S&P 500, or simply the S&P, is a stock market index that measures the stock performance of 500 large companies listed on stock exchanges in the United States
+        </div>
+    </ng-template>
+
+    <ng-template #GDP>
+        <div class="tooltip-title">
+            Gross Domestic Product — GDP
+        </div>
+        <div class="tooltip-description">
+            Gross Domestic Product (GDP) is the total monetary or market value of all the finished goods and services produced within a country's borders in a specific time period.
+            <div class="tooltip-note">Description by the authors</div>
+        </div>
+    </ng-template>
+</div>

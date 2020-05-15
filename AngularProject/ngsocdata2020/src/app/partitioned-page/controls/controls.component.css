@@ -1,0 +1,14 @@
+.icon {
+    color: white;
+}
+
+.controls{
+    margin-top: 15px;
+}
+
+.control {
+    font-size: 15px;
+    margin: 3px;
+    padding: 5px;
+    font-family: FranklinGothic;
+}

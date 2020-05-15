@@ -1,0 +1,65 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+
+/* Defining general fonts */
+@font-face {
+    font-family: 'Garamond';
+    src: url("/assets/fonts/garamond.ttf");
+}
+
+@font-face {
+    font-family: 'FranklinGothic';
+    src: url("/assets/fonts/franklin-gothic.ttf");
+}
+
+
+@font-face {
+    font-family: 'Hawthorn';
+    src: url("/assets/fonts/hawthorn.otf");
+}
+
+.title-large {
+    font-size: 50px;
+    font-family: Hawthorn;
+}
+
+.title-medium {
+    font-size: 40px;
+    font-family: Hawthorn;
+}
+
+.title-small {
+    font-size: 30px;
+    font-family: Hawthorn;
+}
+
+.tooltip-title {
+    font-size: 22px;
+    font-family: Hawthorn;
+    line-height: 1rem;
+    margin-bottom: 10px;
+}
+
+.tooltip-description {
+    font-size: 14px;
+    font-family: FranklinGothic;
+    line-height: 1rem;
+    margin-bottom: 5px;
+}
+
+
+.text-part {
+    font-size: 20px;
+    font-family: FranklinGothic;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+.note {
+    font-size: 15px;
+    font-family: FranklinGothic;
+}
+
+.linebreak {
+    width: 33%;
+}

@@ -1,0 +1,7 @@
+<div class="story-description">
+    <h2>{{posterDataObj.story[posterDataObj.storySelected].title}}</h2>
+    <div *ngFor="let description of posterDataObj.story[posterDataObj.storySelected].decription" class="description-paragraph">
+        {{description}}
+        <br><br>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+.covid-stats {
+    font-family: FranklinGothic;
+}
+
+
+.country-breakdown {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: "country-name-area country-name-area"
+                         "country-stat-row-area country-stat-row-area";
+}
+
+.country-image-div {
+    grid-area: country-image-area;
+}
+
+.country-name {
+    grid-area: country-name-area;
+}
+
+.country-stat-row {
+    grid-area: country-stat-row-area;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.flag-icon {
+    margin-right: 10px;
+}
+
+h3 {
+    font-family: Hawthorn;
+}

@@ -1,0 +1,44 @@
+/* Page specific */
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a {
+    color: black;
+    text-decoration: underline;
+}
+
+.text-part {
+    width: 40%;
+}
+
+.title {
+    text-align: center;
+}
+
+.ticker {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.plotly-iframe-daily {
+    width: 80%;
+    height: 650px;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+.plotly-iframe-gdp {
+    width: 65%;
+    height: 616px;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+.back{
+    text-align: center;
+}

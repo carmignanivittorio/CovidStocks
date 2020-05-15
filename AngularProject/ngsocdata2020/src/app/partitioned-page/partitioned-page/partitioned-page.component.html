@@ -1,0 +1,16 @@
+<div class="partitioned-poster">
+    <app-choice-buttons [posterDataObj]="posterDataObj" class="choice-buttons"></app-choice-buttons>
+    <div class="center-viz">
+        <div class="left">
+            <app-story-description [posterDataObj]="posterDataObj" class="description"></app-story-description>
+            <app-events [posterDataObj]="posterDataObj" class="events"></app-events>
+        </div>
+
+        <app-heatmap [posterDataObj]="posterDataObj" class="heatmap"></app-heatmap>
+        <app-covid-stats [posterDataObj]="posterDataObj" class="covid-stats"></app-covid-stats>
+        
+        <app-chart [posterDataObj]="posterDataObj" class="chart"></app-chart>
+        <app-timeline [posterDataObj]="posterDataObj" class="timeline"></app-timeline>
+        <app-controls [posterDataObj]="posterDataObj" class="controls"></app-controls>
+    </div>
+</div>
