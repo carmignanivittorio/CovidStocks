@@ -33,7 +33,7 @@
     "express": "^4.17.1",
     "flag-icon-css": "^3.4.6",
     "ionicons": "^5.0.1",
-    "moment": "2.24.0",
+    "moment": "2.29.2",
     "ng2-charts": "^2.3.0",
     "ng5-slider": "^1.2.4",
     "ngx-avatar": "^3.7.0",
